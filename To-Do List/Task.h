@@ -12,6 +12,6 @@
 
 -(instancetype)initWithTitle: (NSString *)taskTitle;
 
--(void)info;
+-(NSString *)info;
 
 @end

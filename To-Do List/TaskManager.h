@@ -5,8 +5,15 @@
 //  Created by Tyler Pierce on 8/18/26.
 //
 
-#ifndef TaskManager_h
-#define TaskManager_h
+#import <Foundation/Foundation.h>
 
+@interface TaskManager : NSObject
 
-#endif /* TaskManager_h */
+@property (nonatomic, readonly) NSMutableArray *tasks;
+
+-(instancetype)init;
+
+-(void) addTask: (NSString *) title;
+-(void) listTasks;
+
+@end

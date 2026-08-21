@@ -24,11 +24,11 @@
     return self;
 }
 
-- (void)info {
+- (NSString *)info {
     if (self.completed) {
-        NSLog(@"[x] %@", self.title);
+        return [NSString stringWithFormat:@"[x] %@", self.title];
     } else {
-        NSLog(@"[ ] %@", self.title);
+        return [NSString stringWithFormat:@"[ ] %@", self.title];
     }
 }
 
