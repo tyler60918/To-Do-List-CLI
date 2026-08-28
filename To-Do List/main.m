@@ -31,6 +31,7 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         TaskManager *taskManager = [[TaskManager alloc] init];
         BOOL isRunning = YES;
+        printf("To-do CLI - type 'help' for commands\n");
         
         while (isRunning) {
             printf("> "); // prompt
@@ -69,19 +70,6 @@ int main(int argc, const char * argv[]) {
                 printf("Unknown command: %s\n", [command UTF8String]);
             }
         }
-        
-        
-//        [taskManager addTask:@"Wash Dishes"];
-//        [taskManager addTask:@"Read Book"];
-//        [taskManager listTasks];
-//        [taskManager markComplete:1];
-//        [taskManager listTasks];
-//        [taskManager removeTask:1];
-//        [taskManager listTasks];
-//        [taskManager addTask:@"Code"];
-//        [taskManager listTasks];
-//        [taskManager clearTasks];
-//        [taskManager listTasks];
     }
     return EXIT_SUCCESS;
 }
