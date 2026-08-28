@@ -14,6 +14,10 @@ int main(int argc, const char * argv[]) {
         [taskManager addTask:@"Wash Dishes"];
         [taskManager addTask:@"Read Book"];
         [taskManager listTasks];
+        [taskManager markComplete:1];
+        [taskManager listTasks];
+        [taskManager removeTask:1];
+        [taskManager listTasks];
     }
     return EXIT_SUCCESS;
 }

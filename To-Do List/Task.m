@@ -8,12 +8,12 @@
 #import <Foundation/Foundation.h>
 #import "Task.h"
 
-@interface Task()
-
-@property (nonatomic, readwrite) NSString *title;
-@property (nonatomic, readwrite, getter=isCompleted) BOOL completed;
-
-@end
+//@interface Task()
+//
+//@property (nonatomic, readwrite) NSString *title;
+//@property (nonatomic, getter=isCompleted) BOOL completed;
+//
+//@end
 
 @implementation Task
 

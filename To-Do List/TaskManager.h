@@ -14,6 +14,8 @@
 -(instancetype)init;
 
 -(void) addTask: (NSString *) title;
+-(void) markComplete: (int) taskNumber;
+-(void) removeTask: (int) taskNumber;
 -(void) listTasks;
 
 @end

@@ -7,8 +7,8 @@
 
 @interface Task : NSObject
 
-@property (nonatomic, readonly) NSString *title;
-@property (nonatomic, readonly, getter=isCompleted) BOOL completed;
+@property (nonatomic) NSString *title;
+@property (nonatomic, getter=isCompleted) BOOL completed;
 
 -(instancetype)initWithTitle: (NSString *)taskTitle;
 
