@@ -30,6 +30,10 @@
 }
 
 -(void) listTasks {
+    if (self.tasks.count == 0) {
+        NSLog(@"All tasks complete!");
+        return;
+    }
     NSLog(@"Tasks:");
     for (int i = 0; i < self.tasks.count; i++) {
         NSLog(@"%d. %@", (i + 1), [self.tasks[i] info]);
@@ -52,5 +56,10 @@
     }
     [self.tasks removeObjectAtIndex:(taskNumber - 1)];
 }
+
+- (void) clearTasks {
+    [self.tasks removeAllObjects];
+}
+
 
 @end

@@ -16,6 +16,7 @@
 -(void) addTask: (NSString *) title;
 -(void) markComplete: (int) taskNumber;
 -(void) removeTask: (int) taskNumber;
+-(void) clearTasks;
 -(void) listTasks;
 
 @end

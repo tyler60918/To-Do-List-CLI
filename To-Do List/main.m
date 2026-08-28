@@ -18,6 +18,10 @@ int main(int argc, const char * argv[]) {
         [taskManager listTasks];
         [taskManager removeTask:1];
         [taskManager listTasks];
+        [taskManager addTask:@"Code"];
+        [taskManager listTasks];
+        [taskManager clearTasks];
+        [taskManager listTasks];
     }
     return EXIT_SUCCESS;
 }
