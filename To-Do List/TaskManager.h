@@ -19,4 +19,7 @@
 -(void) clearTasks;
 -(void) listTasks;
 
+-(void) saveToFile;
+-(void) loadFromFile;
+
 @end

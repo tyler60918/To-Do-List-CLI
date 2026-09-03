@@ -24,6 +24,14 @@
     return self;
 }
 
+- (NSString *)filePath {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
+    NSString *appSupportDir = [paths firstObject];
+    NSString *appDir = [appSupportDir stringByAppendingPathComponent:@"TodoCLI"];
+    
+    return [appDir stringByAppendingPathComponent:@"todo.data"];
+}
+
 -(void) addTask:(NSString *)title {
     Task *newTask = [[Task alloc] initWithTitle: title];
     [self.tasks addObject: newTask];
@@ -61,5 +69,23 @@
     [self.tasks removeAllObjects];
 }
 
+- (void) saveToFile {
+    NSString *path = [self filePath];
+    NSString *directory = [path stringByDeletingLastPathComponent];
+    
+    [[NSFileManager defaultManager] createDirectoryAtPath:directory withIntermediateDirectories:YES attributes:nil error:nil];
+    
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.tasks requiringSecureCoding:YES error:nil];
+    [data writeToFile:path atomically:YES];
+}
+
+- (void) loadFromFile {
+    NSData *data = [NSData dataWithContentsOfFile:[self filePath]];
+    if (data) {
+        NSSet *allowedClasses = [NSSet setWithArray:@[[NSArray class], [Task class], [NSString class]]];
+        NSArray *loadedTasks = [NSKeyedUnarchiver unarchivedObjectOfClasses:allowedClasses fromData:data error:nil];
+        self.tasks = [loadedTasks mutableCopy];
+    }
+}
 
 @end

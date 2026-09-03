@@ -30,6 +30,8 @@ void printMenu(void) {
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         TaskManager *taskManager = [[TaskManager alloc] init];
+        [taskManager loadFromFile];
+        
         BOOL isRunning = YES;
         printf("To-do CLI - type 'help' for commands\n");
         
@@ -64,6 +66,7 @@ int main(int argc, const char * argv[]) {
                 [taskManager clearTasks];
             } else if ([command isEqualToString:@"quit"] || [command isEqualToString:@"exit"]) {
                 isRunning = NO;
+                [taskManager saveToFile];
             } else if ([command isEqualToString:@"help"]) {
                 printMenu();
             } else {

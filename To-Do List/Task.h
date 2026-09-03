@@ -5,7 +5,7 @@
 //  Created by Tyler Pierce on 8/18/26.
 //
 
-@interface Task : NSObject
+@interface Task : NSObject <NSSecureCoding>
 
 @property (nonatomic) NSString *title;
 @property (nonatomic, getter=isCompleted) BOOL completed;

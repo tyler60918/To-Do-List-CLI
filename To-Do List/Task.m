@@ -32,4 +32,22 @@
     }
 }
 
+- (void)encodeWithCoder:(NSCoder *)coder {
+    [coder encodeObject:self.title forKey:@"title"];
+    [coder encodeBool:self.completed forKey:@"completed"];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    self = [super init];
+    if (self) {
+        self.title = [coder decodeObjectForKey:@"title"];
+        self.completed = [coder decodeBoolForKey:@"completed"];
+    }
+    return self;
+}
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
